@@ -7,7 +7,6 @@ const apiKey = ',&appid=24d2cd9ca7d20742088c9e53c8b8f428';
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
-const server = 'http://localhost:3000';
 
 // Async GET
 const retrieveData = async (baseURL, apiKey, ZipCode) =>{ 
