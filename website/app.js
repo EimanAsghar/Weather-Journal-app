@@ -52,14 +52,14 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(e){
     const zipcode  =  document.getElementById('zip').value;
-    const feeling =  document.getElementById('feelings').value;
+    const content =  document.getElementById('feelings').value;
   
     retrieveData(baseURL, apiKey, zipcode)
     // New Syntax!
     .then(function(data){
       // Add data
       console.log(data);
-      postData('/add', {date: newDate, temp: data.main.temp, feeling} );
+      postData('/add', {date: newDate, temp: data.main.temp, content} );
     })
     .then(function (newData) {
         updateUI()
@@ -70,9 +70,9 @@ function performAction(e){
     const request = await fetch('/all');
     try{
       const allData = await request.json();
-      document.getElementById('date').innerHTML = allData[0].date;
-      document.getElementById('temp').innerHTML = allData[0].temp;
-      document.getElementById('content').innerHTML = allData[0].content;
+      document.getElementById('date').innerHTML = allData.date;
+      document.getElementById('temp').innerHTML = allData.temp;
+      document.getElementById('content').innerHTML = allData.content;
   
     }catch(error){
       console.log("error", error);
